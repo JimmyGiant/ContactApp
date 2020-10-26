@@ -153,7 +153,7 @@ body {
     width: 500px;
     margin: 0px auto;
     margin-top: 200px;
-    padding: 0 40px 40px 40px;    
+    padding: 0 40px 0px 40px;    
 }
 
 
@@ -166,7 +166,9 @@ body {
 }
 
 
-.contactCard input {
+.contactCard input[type="text"],
+.contactCard input[type="email"], 
+.contactCard input[type="date"] {
     border: 0px solid;
     font-size: 16px;
     padding: 0px;
@@ -231,4 +233,50 @@ body {
 .editButton:hover {
     background: #F3f3f3;
 
+}
+
+
+.last-input-row{
+    padding-bottom: 40px;
+}
+
+
+.button_save_cardField {
+    background-color: #1DB1B7 !important;
+    border: 0px;
+}
+
+
+.button-row {
+    margin-top: 0px;
+    display: none;
+
+}
+
+
+.button-row input{
+    padding: 5px 10px !important;
+    font-size: 16px;
+    margin-top: 0px;
+
+}
+
+
+.button_delete_cardField{
+    background: #FFF;
+    color: orangered;
+    border: 0px;
+}
+
+
+.button_delete_cardField:hover{
+    background: #F3f3f3;
+    color: orangered;
+    border: 0px;
+}
+
+
+.isVisibleFlex{
+    display: flex !important;
+    padding-bottom: 30px;
 }

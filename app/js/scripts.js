@@ -26,6 +26,7 @@ var contactController = (function(){
         };
         
         var contactList = [];
+        var currentID;
 
         return {
             addContact: function(firstName, lastName, adress, zipCode, country, email, phone, dateOfBirth) {
@@ -48,6 +49,34 @@ var contactController = (function(){
 
                 return newContact;
             },
+
+            deleteContact: function(id) {
+                var ids, index;
+
+                console.log("Vor dem Löschprozess" + contactList)
+
+
+                ids = contactList.map(function(current){
+                    return current.id;
+                });
+
+                index = ids.indexOf(parseInt(id));
+
+                if (index !== -1) {
+                    contactList.splice(index, 1);
+
+                }
+
+            },
+
+            setCurrentID: function(id) {
+                currentID = id;
+            },
+
+            getCurrentID: function() {
+                return currentID;
+            },
+
             getContactIndex: function(itemID) {
                 var parsedID;
 
@@ -93,7 +122,10 @@ var UIController = (function() {
         saveButton: '.button_save',
         closeButton: '.closeButton',
         contactListContainerUL: '.contactListAll',
-        contactWindowContainer: '.contactWindow'
+        buttonRowCard: '.button-row',
+        saveButtonCard: '.button_save_cardField',
+        deleteButtonCard: '.button_delete_cardField',
+        editButtonCard: '.editButton'
     }
 
     return {
@@ -154,8 +186,14 @@ var UIController = (function() {
             fieldsArr[0].focus();
         },
 
+        enableEditingMode: function() {
+            document.querySelector(DOMstrings.buttonRowCard).classList.add('isVisibleFlex');
+        },
+
         displayContact: function(array, index) {
-        
+            // Remove Editing Mode if true
+            document.querySelector(DOMstrings.buttonRowCard).classList.remove('isVisibleFlex');
+
             document.querySelector(DOMstrings.cardTitle).innerHTML = array[index].firstName + " " + array[index].lastName;
             document.querySelector(DOMstrings.firstNameCard).value = array[index].firstName;
             document.querySelector(DOMstrings.lastNameCard).value = array[index].lastName;
@@ -184,6 +222,10 @@ var controller = (function(contactCtrl, UICtrl) {
 
         document.querySelector(DOM.newButton).addEventListener('click', UICtrl.openModal);
         document.querySelector(DOM.closeButton).addEventListener('click', UICtrl.closeModal);
+        document.querySelector(DOM.editButtonCard).addEventListener('click', UICtrl.enableEditingMode);
+        
+        
+        document.querySelector(DOM.deleteButtonCard).addEventListener('click', ctrlDeleteItem);
         document.querySelector(DOM.saveButton).addEventListener('click', ctrlAddContact);
     
         document.addEventListener('keydown', function(event) {
@@ -213,10 +255,6 @@ var controller = (function(contactCtrl, UICtrl) {
         UICtrl.reloadContactList(contactArray);
         // UICtrl.clearFields();
         // UICtrl.closeModal();
-
-        // TODO: 4 SHOW CONTACT IN WINDOW ON CLICK
-
-        // Return the contact
     }
 
     var ctrlDisplayContact = function(event) {
@@ -235,7 +273,21 @@ var controller = (function(contactCtrl, UICtrl) {
             console.log("und hier der passende Index" + contactIndex);
 
             UICtrl.displayContact(contactArray, contactIndex);
+
+            contactCtrl.setCurrentID(itemID);
         }
+    }
+
+    var ctrlDeleteItem = function() {
+        var currentID, contactArray;
+        
+        currentID = contactCtrl.getCurrentID();
+        contactArray = contactController.getContactList();
+
+        contactCtrl.deleteContact(currentID)
+
+        UICtrl.reloadContactList(contactArray);
+
     }
 
     return {
