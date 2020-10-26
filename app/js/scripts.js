@@ -8,7 +8,6 @@
 // var contactCreator = new ContactCreator();
 // var contactDatabase = new ContactDatabase();
 
-var ted = 34;
 
 // CONTACT CONTROLLER
 var contactController = (function(){
@@ -49,10 +48,19 @@ var contactController = (function(){
 
                 return newContact;
             },
+            getContactIndex: function(itemID) {
+                var parsedID;
+
+                parsedID = parseInt(itemID);
+  
+                var selectedIndex = contactList.findIndex(x => x.id === parsedID);
+                return selectedIndex;
+            },
 
             getContactList: function() {
                 return contactList;
             }
+
 
         }
 
@@ -70,6 +78,15 @@ var UIController = (function() {
         email: '.email',
         phone: '.phone',
         dateOfBirth: '.date',
+        cardTitle: '.cardTitle',
+        firstNameCard: '.first_name_cardField',
+        lastNameCard: '.last_name_cardField',
+        adressCard: '.adress_cardField',
+        zipCodeCard: '.zip_code_cardField',
+        countryCard: '.country_cardField',
+        emailCard: '.email_cardField',
+        phoneCard: '.phone_cardField',
+        dateOfBirthCard: '.date_cardField',
         modal: '.formcontainer',
         overlay: '.overlay',
         newButton: '.newButton',
@@ -77,7 +94,6 @@ var UIController = (function() {
         closeButton: '.closeButton',
         contactListContainerUL: '.contactListAll',
         contactWindowContainer: '.contactWindow'
-
     }
 
     return {
@@ -104,10 +120,11 @@ var UIController = (function() {
 
             arr.forEach(function(current, index, array){
               // ctreate HTML string
-              html = '<li class="contactListItemCell"><span class="lastNameBold">%lastName%</span> %firstName%</li>';
+              html = '<li class="contactListItemCell" id="%id%"><strong>%lastName%</strong> %firstName%</li>';
               // Replace Placeholder
               newHtml = html.replace('%firstName%', arr[index].firstName);
               newHtml = newHtml.replace('%lastName%', arr[index].lastName);
+              newHtml = newHtml.replace('%id%', arr[index].id);
               // Insert HTML
               document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
             });
@@ -137,6 +154,19 @@ var UIController = (function() {
             fieldsArr[0].focus();
         },
 
+        displayContact: function(array, index) {
+        
+            document.querySelector(DOMstrings.cardTitle).innerHTML = array[index].firstName + " " + array[index].lastName;
+            document.querySelector(DOMstrings.firstNameCard).value = array[index].firstName;
+            document.querySelector(DOMstrings.lastNameCard).value = array[index].lastName;
+            document.querySelector(DOMstrings.adressCard).value = array[index].adress;
+            document.querySelector(DOMstrings.zipCodeCard).value = array[index].zipCode;
+            document.querySelector(DOMstrings.countryCard).value = array[index].country;
+            document.querySelector(DOMstrings.emailCard).value = array[index].email;
+            document.querySelector(DOMstrings.phoneCard).value = array[index].phone;
+            document.querySelector(DOMstrings.dateOfBirthCard).value = array[index].dateOfBirth;
+        },
+
         getDOMstrings: function() {
             return DOMstrings;
         }
@@ -162,6 +192,8 @@ var controller = (function(contactCtrl, UICtrl) {
             }
         });
 
+        document.querySelector(DOM.contactListContainerUL).addEventListener('click', ctrlDisplayContact);
+
     }
     
     var ctrlAddContact = function() {
@@ -170,6 +202,7 @@ var controller = (function(contactCtrl, UICtrl) {
         ////  1 GET INPUT FROM FIELDS
         input = UICtrl.getInput();
         contactArray = contactController.getContactList();
+        console.log("this is " + contactArray);
 
         // TODO: 2 ADD THE INPUT TO THE DATASTRUCTURE
 
@@ -184,6 +217,25 @@ var controller = (function(contactCtrl, UICtrl) {
         // TODO: 4 SHOW CONTACT IN WINDOW ON CLICK
 
         // Return the contact
+    }
+
+    var ctrlDisplayContact = function(event) {
+        var itemID, contactArray, contactIndex;
+
+        itemID = event.target.id;
+        contactArray = contactController.getContactList(); // FFFFFFEEEEEHHHHLLELRR ??? WARUM
+        
+        console.log(contactArray);
+
+        if (itemID) {
+
+            contactIndex = contactController.getContactIndex(itemID);
+
+            console.log("hier ist der array  "  + contactArray);
+            console.log("und hier der passende Index" + contactIndex);
+
+            UICtrl.displayContact(contactArray, contactIndex);
+        }
     }
 
     return {

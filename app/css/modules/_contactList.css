@@ -1,0 +1,30 @@
+
+.contactList{
+    display: flex;
+    background: #FFF;
+    width: 300px;
+    left: 0px;
+    min-height: 100vh;
+
+    -webkit-box-shadow: 0px 0px 0px 100px rgba(0,0,0,2.5);
+    -moz-box-shadow: 0px 0px 0px 100px rgba(0,0,0,2.5);
+    box-shadow: 0px 0px 0px 100px rgba(0,0,0,2.5);
+
+
+}
+
+
+.contactListAll{
+    width: 100%;
+    list-style-type: none;
+}
+
+.contactListItemCell{
+    width: 100%;
+    border-bottom: solid 1px lightgrey;
+    padding: 10px 20px;
+}
+.contactListItemCell:hover{
+    background-color: #f1f1f1;
+    cursor: pointer;
+}

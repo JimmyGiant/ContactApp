@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <title>Contact App</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="style.css" />
         <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500&display=swap" rel="stylesheet">
     </head>
 
@@ -15,9 +15,6 @@
             <button class="closeButton" id="closeButton">✕</button>
             <h2>Add new contact</h2>
             <form>
-              <!-- <div class="form-group">
-                <label>Profile Image</label> <input type="file" name="datei" size="40" maxlength="100000" />
-              </div> -->
                 <div class="form-row">
                     <div class="col"><label>First Name</label> <input type="text" class="form-control first_name" name="first_name" placeholder="Placeholder Textfeld" /></div>
 
@@ -55,33 +52,33 @@
                 <div class="contactCard">
                     <button class="editButton" id="editButton"><img src="img/edit.svg"></button>
                     <img class="avatar" src="img/defaultAvatar.svg" alt="avatar">
-                    <h2 class="cardTitle">Jane Doe</h2>
+                    <h2 class="cardTitle">%contactName%</h2>
                     <p class="companyTitle">Real Cool Company Inc.</p>
                     <button class="writeMessageButton">Send message</button>
                     <hr>
                     <form>
                           <div class="form-row">
                               <div class="col"><label>First Name</label> <input type="text" class="form-control first_name_cardField" name="first_name" placeholder="Jane" /></div>
-          
                               <div class="col"><label>Last Name</label> <input type="text" class="form-control last_name_cardField" name="last_name" placeholder="Doe" /></div>
                           </div>
-          
-                          <div class="form-group"><label>Adress</label> <input type="text" class="form-control adress_cardField" name="adress" placeholder="Textfieldrow 23a" /></div>
                           <div class="form-row">
+                              <div class="col"><label>Adress</label> <input type="text" class="form-control adress_cardField" name="adress" placeholder="Textfieldrow 23a" /></div>
                               <div class="col"><label>Zip Code</label> <input type="text" class="form-control zip_code_cardField" name="zip_code" placeholder="22789" /></div>
-          
+                          </div>
+                          <div class="form-row">
                               <div class="col"><label>Country</label> <input type="text" class="form-control country_cardField" name="country" placeholder="Germany" /></div>
+                              <div class="col"><label>Date of Birth</label> <input type="date" class="form-control form-control-sm date_cardField" name="date" value="" /></div>
                           </div>
                           <div class="form-row">
                               <div class="col"><label>E-Mail</label> <input type="email" class="form-control email_cardField" name="email" placeholder="jane.doe@gmail.com" /></div>
                               <div class="col"><label>Phone</label> <input type="text" class="form-control phone_cardField" name="phone" placeholder="+49 48 484486" /></div>
                           </div>
-          
-                          <div class="form-group"><label>Date of Birth</label> <input type="date" class="form-control form-control-sm date_cardField" name="date" value="" /></div>
-                          <div class="form-group">
-                              <!-- <input type="button" class="btn btn-primary button_save" name="button_save" value="save" /> -->
-                          </div>
-                      </form>
+                          <div class="form-row">
+                            <div class="col"><input type="button" class="btn btn-primary button_save" name="button_save" value="save" /></div>
+                            <div class="col"><input type="button" class="btn btn-primary button_save" name="button_save" value="save" /></div>
+                        </div>
+
+                    </form>
                 </div>
                 
             </section>

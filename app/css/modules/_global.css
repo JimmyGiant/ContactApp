@@ -1,0 +1,14 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-size: border-box;
+}
+
+
+hr{
+    margin: 35px 0 50px 0;
+}
+
+input {
+    margin-bottom: 20px;
+}
