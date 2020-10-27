@@ -44,6 +44,13 @@ body {
 }
 
 
+.formcontainer .button_save {
+    background-color: #1DB1B7 !important;
+    border: 0px;
+
+}
+
+
 .isVisible {
     display: block !important;
 }
@@ -91,7 +98,6 @@ body {
     min-height: 100vh;
     box-shadow: 0px 0px 0px 100px rgba(0,0,0,2.5);
 
-
 }
 
 
@@ -111,6 +117,12 @@ body {
 .contactListItemCell:hover{
     background-color: #f1f1f1;
     cursor: pointer;
+}
+
+
+.isActive {
+    background-color: orangered;
+    color: #FFF;
 }
 
 
@@ -152,8 +164,9 @@ body {
     border-radius: 20px;
     width: 500px;
     margin: 0px auto;
-    margin-top: 200px;
-    padding: 0 40px 0px 40px;    
+    margin-top: 150px;
+    padding: 0 40px 0px 40px;  
+    display:none;  
 }
 
 
@@ -171,12 +184,24 @@ body {
 .contactCard input[type="date"] {
     border: 0px solid;
     font-size: 16px;
-    padding: 0px;
     margin-top: 0px;
     margin-bottom: 15px;
-    height: 20px;
-
+    height: 30px;
+    border-radius: 0px;
+    border-bottom: 1px solid lightgrey;
+    color: grey;
+    padding-left: 0px;
 }
+
+
+.contactCard input[type="text"]:disabled,
+.contactCard input[type="email"]:disabled, 
+.contactCard input[type="date"]:disabled {
+    background: #FFF;
+    padding: 0px;
+    border-bottom: 0px solid lightgrey;
+    color: darkgrey;
+  }
 
 
 .cardTitle {

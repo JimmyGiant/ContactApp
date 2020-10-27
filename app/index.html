@@ -17,24 +17,27 @@
             <form>
                 <div class="form-row">
                     <div class="col"><label>First Name</label> <input type="text" class="form-control first_name" name="first_name" placeholder="Placeholder Textfeld" /></div>
-
                     <div class="col"><label>Last Name</label> <input type="text" class="form-control last_name" name="last_name" placeholder="Placeholder Textfeld" /></div>
                 </div>
-
-                <div class="form-group"><label>Adress</label> <input type="text" class="form-control adress" name="adress" placeholder="Placeholder Textfeld" /></div>
                 <div class="form-row">
+                    <div class="col"><label>Adress</label> <input type="text" class="form-control adress" name="adress" placeholder="Placeholder Textfeld" /></div>
                     <div class="col"><label>Zip Code</label> <input type="text" class="form-control zip_code" name="zip_code" placeholder="Placeholder Textfeld" /></div>
-
-                    <div class="col"><label>Country</label> <input type="text" class="form-control country" name="country" placeholder="Placeholder Textfeld" /></div>
                 </div>
+                <div class="form-row">
+                    <div class="col"><label>Country</label> <input type="text" class="form-control country" name="country" placeholder="Placeholder Textfeld" /></div>
+                    <div class="col"><label>Date of Birth</label> <input type="date" class="form-control form-control-sm date" name="date" value="" /></div>
+                </div>
+                
                 <div class="form-row">
                     <div class="col"><label>E-Mail</label> <input type="email" class="form-control email" name="email" placeholder="Placeholder E-Mail" /></div>
                     <div class="col"><label>Phone</label> <input type="text" class="form-control phone" name="phone" placeholder="Placeholder Textfeld" /></div>
                 </div>
-
-                <div class="form-group"><label>Date of Birth</label> <input type="date" class="form-control form-control-sm date" name="date" value="" /></div>
+                <div class="form-row">
+                    <div class="col"><label>Company</label> <input type="company" class="form-control company" name="company" placeholder="Company" /></div>
+                    
+                </div>
                 <div class="form-group">
-                    <input type="button" class="btn btn-primary button_save" name="button_save" value="save" />
+                    <input type="button" class="btn btn-primary button_save" name="button_save" value="save"/>
                 </div>
             </form>
         </div>
@@ -69,10 +72,13 @@
                               <div class="col"><label>Country</label> <input type="text" class="form-control country_cardField" name="country" placeholder="" /></div>
                               <div class="col"><label>Date of Birth</label> <input type="date" class="form-control form-control-sm date_cardField" name="" value="" /></div>
                           </div>
-                          <div class="form-row last-input-row">
+                          <div class="form-row">
                               <div class="col"><label>E-Mail</label> <input type="email" class="form-control email_cardField" name="email" placeholder="" /></div>
                               <div class="col"><label>Phone</label> <input type="text" class="form-control phone_cardField" name="phone" placeholder="" /></div>
                           </div>
+                          <div class="form-row last-input-row">
+                            <div class="col"><label>Company</label> <input type="text" class="form-control company_cardField" name="company" placeholder="" /></div>
+                        </div>
 
                           <div class="form-row button-row">
                             <div class="col"><input type="button" class="btn btn-primary button_save_cardField" name="button_save" value="save changes" /></div>

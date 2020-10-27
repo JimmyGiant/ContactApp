@@ -19,6 +19,11 @@
     display:none;
 }
 
+.formcontainer .button_save {
+    background-color: #1DB1B7 !important;
+    border: 0px;
+
+}
 
 .isVisible {
     display: block !important;
