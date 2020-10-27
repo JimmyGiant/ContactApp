@@ -1,4 +1,4 @@
-ContactApp
+<h1>ContactApp</h1>
 Learning Javascript by creating a contact App
 
 Features:
