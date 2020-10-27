@@ -1,5 +1,5 @@
 ContactApp
-Learning Javascript by creating a contact App
+Learning Javascript by creating a plain JS contact App
 
 Features:
 - adding and deleting Contatcs to a data structure (no database)
